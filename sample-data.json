@@ -1,0 +1,40 @@
+{
+    "people": [
+        {
+            "id": "p1",
+            "name": "Raj Kumar",
+            "contact": "9876543210"
+        },
+        {
+            "id": "p2",
+            "name": "Priya Sharma",
+            "contact": "9123456789"
+        }
+    ],
+    "transactions": [
+        {
+            "id": "t1",
+            "personId": "p1",
+            "date": "2025-11-15T10:00:00.000Z",
+            "type": "GIVEN",
+            "amount": 50000,
+            "notes": "Loan given"
+        },
+        {
+            "id": "t2",
+            "personId": "p1",
+            "date": "2025-11-20T14:30:00.000Z",
+            "type": "RECEIVED",
+            "amount": 10000,
+            "notes": "Part payment"
+        },
+        {
+            "id": "t3",
+            "personId": "p2",
+            "date": "2025-11-18T09:00:00.000Z",
+            "type": "RECEIVED",
+            "amount": 25000,
+            "notes": "Service payment"
+        }
+    ]
+}

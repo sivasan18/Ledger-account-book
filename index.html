@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivaah Personal Account Book</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                    Shivaah Personal Account Book
+                </h1>
+                <button class="btn-icon" id="settings-btn" title="Settings">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- People List Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search people...">
+                    <button class="btn-primary btn-sm" id="add-person-btn" title="Add Person">
+                        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                </div>
+                <ul class="people-list" id="people-list"></ul>
+            </aside>
+
+            <!-- Transaction View -->
+            <main class="transaction-view" id="transaction-view">
+                <div class="empty-state" id="empty-state">
+                    <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <p>Select a person to view transactions</p>
+                </div>
+
+                <div class="person-detail" id="person-detail" style="display: none;">
+                    <div class="person-header">
+                        <div class="person-info">
+                            <h2 id="person-name"></h2>
+                            <p id="person-contact"></p>
+                        </div>
+                        <div class="person-balance">
+                            <span class="label">Balance</span>
+                            <span class="balance-amount" id="person-balance">₹0</span>
+                        </div>
+                    </div>
+
+                    <div class="actions-bar">
+                        <div class="actions-left">
+                            <button class="btn-secondary btn-sm" id="whatsapp-btn" title="Send Reminder">
+                                <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                </svg>
+                            </button>
+                            <button class="btn-secondary btn-sm" id="edit-person-btn">Edit</button>
+                            <div class="dropdown">
+                                <button class="btn-secondary btn-sm" id="export-btn">
+                                    Export
+                                    <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu" id="export-menu">
+                                    <button class="dropdown-item" id="export-csv">Export CSV</button>
+                                    <button class="dropdown-item" id="export-pdf">Export PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-primary btn-sm" id="add-transaction-btn">Add Transaction</button>
+                    </div>
+
+                    <div class="transactions-container">
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th class="text-right">Amount</th>
+                                    <th class="text-right">Balance</th>
+                                    <th>Notes</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactions-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="person-modal">
+        <div class="modal-content">
+            <h3 id="person-modal-title">Add Person</h3>
+            <form id="person-form">
+                <input type="hidden" id="person-id">
+                <div class="form-group">
+                    <label>Name *</label>
+                    <input type="text" id="person-name-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Contact</label>
+                    <input type="text" id="person-contact-input">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" data-close="person-modal">Cancel</button>
+                    <button type="submit" class="btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="transaction-modal">
+        <div class="modal-content">
+            <h3 id="transaction-modal-title">Add Transaction</h3>
+            <form id="transaction-form">
+                <input type="hidden" id="transaction-id">
+                <div class="form-group">
+                    <label>Date *</label>
+                    <input type="datetime-local" id="transaction-date" required>
+                </div>
+                <div class="form-group">
+                    <label>Type *</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="transaction-type" value="GIVEN" checked>
+                            <span class="text-red">GIVEN (OUT)</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="transaction-type" value="RECEIVED">
+                            <span class="text-green">RECEIVED (IN)</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Amount *</label>
+                    <input type="number" id="transaction-amount" min="0.01" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="transaction-notes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" data-close="transaction-modal">Cancel</button>
+                    <button type="submit" class="btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <h3>Settings</h3>
+            <div class="settings-section">
+                <h4>Data Management</h4>
+                <button class="btn-secondary btn-block" id="export-ledger-pdf-btn">Export Full Ledger (PDF)</button>
+                <button class="btn-danger btn-block" id="clear-data-btn">Clear All Data</button>
+                <div class="dev-section" id="dev-section" style="display: none;">
+                    <h4>Developer Tools</h4>
+                    <button class="btn-secondary btn-block" id="seed-data-btn">Load Sample Data</button>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn-secondary" data-close="settings-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snackbar -->
+    <div class="snackbar" id="snackbar">
+        <span id="snackbar-message"></span>
+        <button id="snackbar-undo" class="btn-link">UNDO</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
