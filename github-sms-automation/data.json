@@ -1,0 +1,24 @@
+{
+    "people": [
+        {
+            "id": "p1",
+            "name": "Raj Kumar",
+            "contact": "9876543210"
+        },
+        {
+            "id": "p2",
+            "name": "Priya Sharma",
+            "contact": "9123456789"
+        }
+    ],
+    "transactions": [
+        {
+            "id": "t1",
+            "personId": "p1",
+            "date": "2025-11-25T10:00:00.000Z",
+            "type": "GIVEN",
+            "amount": 500,
+            "notes": "Loan"
+        }
+    ]
+}
